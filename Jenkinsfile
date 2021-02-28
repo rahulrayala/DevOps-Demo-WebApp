@@ -38,6 +38,11 @@ pipeline {
                 //sh 'mvn compile'
                 sh 'mvn -Dmaven.test.failure.ignore=true clean package'
             }
+            post {
+       always {
+           jiraSendBuildInfo branch: 'master', site: 'devopssquad13.atlassian.net'
+       }
+            }
         }
         stage('DeployToNewTest') {
             steps {
