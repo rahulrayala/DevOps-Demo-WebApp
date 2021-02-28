@@ -40,7 +40,7 @@ pipeline {
             }
             post {
        always {
-           jiraSendBuildInfo branch: 'master', site: 'devopssquad13.atlassian.net'
+           jiraSendBuildInfo site: 'devopssquad13.atlassian.net'
        }
             }
         }
