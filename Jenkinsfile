@@ -40,7 +40,7 @@ pipeline {
             }
             post {
        always {
-           jiraSendBuildInfo branch: '', site: 'devopssquad13.atlassian.net'
+           jiraSendBuildInfo branch: 'DEV-3', site: 'devopssquad13.atlassian.net'
            jiraIssueSelector(issueSelector: [$class: 'ExplicitIssueSelector', issueKeys: 'DEV-3'])
        }
             }
