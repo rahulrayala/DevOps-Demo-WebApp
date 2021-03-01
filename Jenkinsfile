@@ -57,7 +57,7 @@ pipeline {
         }
                 post {
        always {
-           jiraSendDeploymentInfo environmentId: 'http://35.222.11.5:8080/', environmentName: 'http://35.222.11.5:8080/', environmentType: 'testing', issueKeys: ['DEV-3'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
+           jiraSendDeploymentInfo environmentId: 'http://34.123.99.203:8080/', environmentName: 'http://34.123.99.203:8080/', environmentType: 'testing', issueKeys: ['DEV-3'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
            jiraIssueSelector(issueSelector: [$class: 'ExplicitIssueSelector', issueKeys: 'DEV-3'])
        }
             }
