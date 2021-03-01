@@ -55,6 +55,12 @@ pipeline {
                deploy adapters: [tomcat8(url: 'http://35.222.11.5:8080/', credentialsId: 'tomcat', path: '' )], contextPath: '/QAWebapp', war: '**/*.war'
             
         }
+                post {
+       always {
+           jiraSendDeploymentInfo environmentId: 'http://35.222.11.5:8080/', environmentName: 'http://35.222.11.5:8080/', environmentType: 'testing', issueKeys: ['DEV-3'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
+           jiraIssueSelector(issueSelector: [$class: 'ExplicitIssueSelector', issueKeys: 'DEV-3'])
+       }
+            }
        }
        stage('UI Test') {
             steps {
