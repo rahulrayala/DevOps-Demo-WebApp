@@ -9,3 +9,5 @@ Commit on 02/03 - testing Putty
 Testing the E2E pipeline/Webhook
 
 Webhook testing - 02/12/2021
+
+Jira integration testing 03/02
