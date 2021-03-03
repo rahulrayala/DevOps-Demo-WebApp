@@ -69,7 +69,7 @@ pipeline {
 				goals: 'clean install'
 			)
 				rtServer (
-                    			id: 'artifactory',
+                    			id: 'ARTIFACTORY_SERVER',
                     			url: 'https://rahulrayala1.jfrog.io/artifactory',
                     			credentialsId: 'deploy'
                 			)
