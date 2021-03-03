@@ -47,12 +47,12 @@ pipeline {
         stage('Deploy To Test') {
             steps {
                slackSend channel: 'alerts', message: 'Deploy the Application to the Test environment'             
-               deploy adapters: [tomcat8(url: 'http://34.121.97.193:8080/', credentialsId: 'tomcat', path: '' )], contextPath: '/QAWebapp', war: '**/*.war'
+               deploy adapters: [tomcat8(url: 'http://104.197.198.124:8080/', credentialsId: 'tomcat', path: '' )], contextPath: '/QAWebapp', war: '**/*.war'
             
         }
             post {
        always {
-           jiraSendDeploymentInfo environmentId: 'http://34.121.97.193:8080/', environmentName: 'http://34.121.97.193:8080/', environmentType: 'testing', issueKeys: ['DEV-4'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
+           jiraSendDeploymentInfo environmentId: 'http://104.197.198.124:8080/', environmentName: 'http://104.197.198.124:8080/', environmentType: 'testing', issueKeys: ['DEV-4'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
                slackSend channel: 'alerts', message: 'Application deployed to Test environment'
        }
 		    
@@ -113,12 +113,12 @@ pipeline {
         steps {
         	slackSend channel: 'alerts', message: 'Starting deployment to Production...'
             sh 'mvn clean install -f pom.xml'
-            deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.69.76.128:8080')], contextPath: 'ProdWebapp', war: '**/*.war'
+            deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.121.97.193:8080')], contextPath: 'ProdWebapp', war: '**/*.war'
         	slackSend channel: 'alerts', message: 'Production deployment complete!'
         }
          post {
        always {
-           jiraSendDeploymentInfo environmentId: 'http://34.69.76.128:8080/', environmentName: 'http://34.69.76.128:8080/', environmentType: 'production', issueKeys: ['DEV-4'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
+           jiraSendDeploymentInfo environmentId: 'http://34.121.97.193:8080/', environmentName: 'http://34.121.97.193:8080/', environmentType: 'production', issueKeys: ['DEV-4'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
        }
             }
     }
