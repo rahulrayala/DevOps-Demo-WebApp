@@ -13,3 +13,5 @@ Webhook testing - 02/12/2021
 Jira integration testing 03/02
 
 E2E Webhook Test 03/02
+
+E2E Pipeline test 03/03 with issuekey DEV-4
