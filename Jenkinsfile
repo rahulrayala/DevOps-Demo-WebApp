@@ -36,6 +36,7 @@ pipeline {
        
                 //sh 'mvn compile'
                 sh 'mvn -Dmaven.test.failure.ignore=true clean package'
+		 slackSend channel: 'alerts', message: 'Build completed successfully'
             }
             post {
        always {
@@ -52,7 +53,9 @@ pipeline {
             post {
        always {
            jiraSendDeploymentInfo environmentId: 'http://34.121.97.193:8080/', environmentName: 'http://34.121.97.193:8080/', environmentType: 'testing', issueKeys: ['DEV-4'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
+               slackSend channel: 'alerts', message: 'Application deployed to Test environment'
        }
+		    
             }
        }
        
