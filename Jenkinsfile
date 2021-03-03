@@ -47,7 +47,7 @@ pipeline {
         stage('Deploy To Test') {
             steps {
                slackSend channel: 'alerts', message: 'Deploy the Application to the Test environment'             
-               deploy adapters: [tomcat8(url: 'http://18.217.76.60:8080/', credentialsId: 'tomcat', path: '' )], contextPath: '/QAWebapp', war: '**/*.war'
+               deploy adapters: [tomcat8(url: 'http://34.121.97.193:8080/', credentialsId: 'tomcat', path: '' )], contextPath: '/QAWebapp', war: '**/*.war'
             
         }
             post {
