@@ -23,9 +23,7 @@ pipeline {
                 withSonarQubeEnv('sonarqube') {
                     sh """${scannerHome}/bin/sonar-scanner"""
                 }
-               // timeout(time: 2, unit: 'MINUTES') {
-               //     waitForQualityGate abortPipeline: true
-                //}
+               }
                 slackSend channel: 'alerts', message: 'Static code analysis is complete'
                 }
         } 
@@ -100,15 +98,15 @@ pipeline {
             	slackSend channel: 'alerts', message: 'UI Tests Complete!'
             }
        }
-     
+    /* 
     stage('Performance Test'){
         steps{
         	slackSend channel: 'alerts', message: 'Starting Performance Test...'
-           	blazeMeterTest credentialsId: 'Blazemeter', testId: '9014510.taurus', workspaceId: '755994'
+           	blazeMeterTest credentialsId: 'Blazemeter', testId: '', workspaceId: ''
         	slackSend channel: 'alerts', message: 'Performance Test Complete!'   
         }
         }
-
+*/
     stage ('Deploy To Prod') {
         steps {
         	slackSend channel: 'alerts', message: 'Starting deployment to Production...'
