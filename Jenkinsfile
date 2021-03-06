@@ -23,8 +23,8 @@ pipeline {
                 withSonarQubeEnv('sonarqube') {
                     sh """${scannerHome}/bin/sonar-scanner"""
                 }
-               }
-                slackSend channel: 'alerts', message: 'Static code analysis is complete'
+		    slackSend channel: 'alerts', message: 'Static code analysis is complete'
+	    }
                 }
         
         stage('Build Project') {
