@@ -26,7 +26,6 @@ pipeline {
                }
                 slackSend channel: 'alerts', message: 'Static code analysis is complete'
                 }
-        } 
         
         stage('Build Project') {
             steps {
@@ -136,4 +135,5 @@ pipeline {
           slackSend channel: 'alerts', message: 'Sanity Test Complete!'
         }
       } 
-   }   
+   }
+}
