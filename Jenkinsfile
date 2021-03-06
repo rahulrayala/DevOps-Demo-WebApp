@@ -111,12 +111,12 @@ pipeline {
         steps {
         	slackSend channel: 'alerts', message: 'Starting deployment to Production...'
             sh 'mvn clean install -f pom.xml'
-            deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://35.188.221.215:8080')], contextPath: 'ProdWebapp', war: '**/*.war'
+            deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.121.29.76:8080')], contextPath: 'ProdWebapp', war: '**/*.war'
         	slackSend channel: 'alerts', message: 'Production deployment complete!'
         }
          post {
        always {
-           jiraSendDeploymentInfo environmentId: 'http://35.188.221.215:8080/', environmentName: 'http://35.188.221.215:8080/', environmentType: 'production', issueKeys: ['DEV-4'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
+           jiraSendDeploymentInfo environmentId: 'http://34.121.29.76:8080/', environmentName: 'http://34.121.29.76:8080/', environmentType: 'production', issueKeys: ['DEV-4'], serviceIds: [''], site: 'devopssquad13.atlassian.net', state: 'successful'
        }
             }
     }
