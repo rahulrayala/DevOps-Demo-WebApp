@@ -98,15 +98,15 @@ pipeline {
             	slackSend channel: 'alerts', message: 'UI Tests Complete!'
             }
        }
-    /* 
+    
     stage('Performance Test'){
         steps{
         	slackSend channel: 'alerts', message: 'Starting Performance Test...'
-           	blazeMeterTest credentialsId: 'Blazemeter', testId: '', workspaceId: ''
+           	blazeMeterTest credentialsId: 'Blazemeter', testId: '9014510.taurus', workspaceId: '755994'
         	slackSend channel: 'alerts', message: 'Performance Test Complete!'   
         }
         }
-*/
+
     stage ('Deploy To Prod') {
         steps {
         	slackSend channel: 'alerts', message: 'Starting deployment to Production...'
